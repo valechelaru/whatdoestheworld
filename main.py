@@ -52,12 +52,12 @@ def getText(nodelist):
 if __name__ == '__main__':
     # XML Location of the NYTimes Home Page
     nytimes_url = 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml'
-    dom = getXML(nytimes_url)
-    saveToFile('test.xml', dom.toprettyxml())
+    dom_ny = getXML(nytimes_url)
+    saveToFile('nytimes.xml', dom_ny.toprettyxml())
 
-    handleXML(dom)
+    handleXML(dom_ny)
 
-    items = dom.getElementsByTagName('item')
+    items = dom_ny.getElementsByTagName('item')
     for item in items:
         title = item.getElementsByTagName('title')[0]
         print(title.firstChild.data)
@@ -72,4 +72,20 @@ if __name__ == '__main__':
 
     bbcnews_url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
     dom_bbc = getXML(bbcnews_url)
-    saveToFile('bbcTest.xml', dom_bbc.toprettyxml())
+    saveToFile('bbcworld.xml', dom_bbc.toprettyxml())
+
+    redditnews_url = 'https://www.reddit.com/r/worldnews/.rss'
+    dom_reddit = getXML(redditnews_url)
+    saveToFile('redditWorldNews.xml', dom_reddit.toprettyxml())
+
+    buzzfeedworld_url = 'https://www.buzzfeed.com/world.xml'
+    dom_buzzfeed = getXML(buzzfeedworld_url)
+    saveToFile('buzzfeednews.xml', dom_buzzfeed.toprettyxml())
+
+    aljazeera_url = 'https://www.aljazeera.com/xml/rss/all.xml'
+    dom_aljazeera = getXML(aljazeera_url)
+    saveToFile('aljazeera.xml', dom_aljazeera.toprettyxml())
+
+    yahooworld_url = 'https://www.yahoo.com/news/rss/world'
+    dom_yahoo = getXML(yahooworld_url)
+    saveToFile('yahoowold.xml', dom_yahoo.toprettyxml())
