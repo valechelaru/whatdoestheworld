@@ -66,6 +66,10 @@ if __name__ == '__main__':
             print(description.firstChild.data)
         except:
             print('NO DESCRIPTION!')
-        categorys = item.getElementsByTagName('category')
-        for category in categorys:
+        categories = item.getElementsByTagName('category')
+        for category in categories:
             print(category.firstChild.data)
+
+    bbcnews_url = 'http://feeds.bbci.co.uk/news/world/rss.xml'
+    dom_bbc = getXML(bbcnews_url)
+    saveToFile('bbcTest.xml', dom_bbc.toprettyxml())
